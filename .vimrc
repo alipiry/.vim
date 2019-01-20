@@ -1,8 +1,10 @@
 set shell=bash
 
 call plug#begin()
+
 " helper
 Plug 'tpope/vim-sensible'
+
 " nertree
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -34,6 +36,7 @@ Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 
 " git footbar
+
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
@@ -69,7 +72,6 @@ noremap <silent> <C-w><C-q> :q!<CR>
 nmap <C-_> <Plug>CommentaryLine
 
 " ALE key binding
-
 nmap <silent> <leader>fa :ALEFix<cr>
 nmap <silent> <leader>gd :ALEGoToDefinitionInVSplit<cr>
 
@@ -88,6 +90,10 @@ set vb t_vb=
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+" Fix autocomplete problem 
+set completeopt+=noinsert
+
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
