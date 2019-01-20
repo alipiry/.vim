@@ -1,5 +1,4 @@
 set shell=bash
-
 call plug#begin()
 
 " helper
@@ -36,8 +35,14 @@ Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 
 " git footbar
-
 Plug 'tpope/vim-fugitive'
+
+" Search 
+Plug 'mileszs/ack.vim'
+
+" Auto save 
+Plug 'vim-scripts/vim-auto-save'
+
 call plug#end()
 
 if (empty($TMUX))
@@ -150,4 +155,11 @@ let g:ale_fixers = {
   \   'typescript': ['tslint'],
   \   'css': ['prettier'],
   \}
+
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 
