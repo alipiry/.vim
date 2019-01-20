@@ -31,3 +31,9 @@ noremap <silent> <C-f> :FZF<CR>
 " force quit
 noremap <silent> <C-w><C-q> :q!<CR>
 
+set number
+set ruler
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
