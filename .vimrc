@@ -40,6 +40,12 @@ Plug 'tpope/vim-fugitive'
 " Auto save 
 Plug 'vim-scripts/vim-auto-save'
 
+" ts highlighter 
+Plug 'leafgarland/typescript-vim'
+
+" tsx highlighter
+Plug 'ianks/vim-tsx'
+
 call plug#end()
 
 if (empty($TMUX))
@@ -55,8 +61,6 @@ endif
 syntax enable
 
 colorscheme onedark
-
-let g:airline_theme='onedark'
 
 " nerdtree shortcut
 map <C-n> <plug>NERDTreeTabsToggle<CR>
@@ -74,7 +78,7 @@ noremap <silent> <C-w><C-q> :q!<CR>
 nmap <C-_> <Plug>CommentaryLine
 
 " ALE key binding
-nmap <silent> <leader>fa :ALEFix<cr>
+nmap <silent> <leader>f :ALEFix<cr>
 nmap <silent> <leader>gd :ALEGoToDefinitionInVSplit<cr>
 
 set number
@@ -163,4 +167,7 @@ noremap <Leader>gs :GFiles?<CR>
 noremap <Leader>b :History<CR>
 " Git log
 noremap <Leader>gl :Commits<CR>
+
+" open NERDTree on vim startup
+let g:nerdtree_tabs_open_on_console_startup = 1
 
