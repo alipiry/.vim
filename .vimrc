@@ -48,11 +48,6 @@ Plug 'tmsvg/pear-tree'
 " theme 
 Plug 'morhetz/gruvbox'
 
-" auto complete
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
 call plug#end()
 " <================================ plugin manager ================================>  
 
@@ -60,57 +55,77 @@ call plug#end()
 " <================================ vim config ================================>  
 syntax enable
 
+" Enable filetype plugin
+filetype plugin on
+filetype indent on
+
+" Save undos after file closes
+set undofile 
+" where to save undo histories
+set undodir=$HOME/.vim/undo 
+" How many undos
+set undolevels=1000         
+" number of lines to save for undo 
+set undoreload=10000       
+" Set to auto read when a file is changed from the outside
+set autoread
+" Show line numbers
 set number
+" Show row and column ruler information
 set ruler
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-
-" gitgutter updatetime 
-set updatetime=100
-
-" no visual bell & flash
-set vb t_vb=
-
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
-
-" Fix autocomplete problem 
-" set completeopt+=noinsert
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases 
-set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch 
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw 
-
-" For regular expressions turn magic on
-set magic
-
-" Show matching brackets when text indicator is over them
+" Wrap lines
+set wrap
+" Break lines at word
+set linebreak	
+" Wrap-broken line prefix
+set showbreak=+++	
+" Highlight matching brace
 set showmatch 
-
+" Enable spell-checking
+set spell	
+" Use visual bell (no beeping) 
+set visualbell 
+" Highlight all search results
+set hlsearch 
+" Enable smart-case search
+set smartcase 
+" Always case-insensitive
+set ignorecase	
+" Searches for strings incrementally
+set incsearch 
+" Auto-indent new lines
+set autoindent
+" Number of auto-indent spaces
+set shiftwidth=2 
+" Enable smart-indent
+set smartindent	
+" Enable smart-tabs
+set smarttab
+" Number of spaces per Tab
+set softtabstop=2
+set tabstop=2
+" Backspace behavior
+set backspace=indent,eol,start 
+set whichwrap+=<,>,h,l
+" No sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+" Don't redraw while executing macros 
+set lazyredraw 
+" For regular expressions
+set magic
 " How many tenths of a second to blink when matching brackets
 set mat=2
-
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Backup off
 set nobackup
 set nowb
 set noswapfile
+" gitgutter updatetime 
+set updatetime=100
+" autocomplete - ALE 
+let g:ale_completion_enabled = 1
+set completeopt+=noinsert
 " <================================ vim config ================================>  
 
 " <================================ theme config ================================>  
@@ -121,24 +136,18 @@ colorscheme gruvbox
 
 " <================================ key bindings  ================================>  
 " nerdtree shortcut
-map <C-n> <plug>NERDTreeTabsToggle<CR>
-
-" ctrl-s shortcut
-noremap <silent> <C-S> :update<CR>
-
+map <C-n> <Plug>NERDTreeTabsToggle<CR>
+" global search shortcut
+noremap <C-S> :Ag<CR>
 " fzf 
-noremap <silent> <C-f> :FZF<CR>
-
+noremap <C-f> :FZF<CR>
 " force quit
-noremap <silent> <C-w><C-q> :q!<CR>
-
-" comment shortcut - C-_
-nmap <C-_> <Plug>CommentaryLine
-
+noremap <C-w><C-q> :q!<CR>
+" comment shortcut - \/
+nmap <Leader>/ <Plug>CommentaryLine
 " ALE key binding
-nmap <silent> <leader>f :ALEFix<cr>
-nmap <silent> <leader>gd :ALEGoToDefinitionInVSplit<cr>
-
+nmap <Leader>f :ALEFix<cr>
+nmap <Leader>gd :ALEGoToDefinitionInVSplit<cr>
 " Git status
 noremap <Leader>gs :GFiles?<CR>
 " Git log
@@ -153,14 +162,17 @@ noremap <Leader>gco :Gcommit <CR>
 noremap <Leader>df :Gdiff <CR>
 " Git push
 noremap <Leader>gps :Gpush<CR>
-
+" Git pull
+noremap <Leader>gpl :Gpull<CR>
 " Buffer history
 noremap <Leader>b :History<CR>
-
 " map enter to insert mode
 nmap <CR> i
 " map backspace 
 nmap <BS> X
+" create tab, switch to next tab
+noremap <Leader>t :tabnew <CR>
+noremap <Leader>n :tabnext <CR>
 " <================================ key bindings  ================================>  
 
 " <================================ Plugins options ================================>  
@@ -184,38 +196,35 @@ let g:ale_fixers = {
   \	'css': ['prettier'],
   \	}
 
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
-let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+" enable AutoSave on Vim startup
+let g:auto_save = 1  
+" do not change the 'updatetime' option
+let g:auto_save_no_updatetime = 1  
+" do not save while in insert mode
+let g:auto_save_in_insert_mode = 0  
 
 " open NERDTree on vim startup
 " let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Default rules for matching
 let g:pear_tree_pairs = {
-	\	'(': {'closer': ')'},
-	\	'[': {'closer': ']'},
-	\	'{': {'closer': '}'},
-	\	"'": {'closer': "'"},
-	\	'"': {'closer': '"'},
-	\ "/*": {'closer': "*/"},
-	\ "<!--": {'closer': "-->"},
-	\	}
+  \	'(': {'closer': ')'},
+  \	'[': {'closer': ']'},
+  \	'{': {'closer': '}'},
+  \	"'": {'closer': "'"},
+  \	'"': {'closer': '"'},
+  \ "/*": {'closer': "*/"},
+  \ "<!--": {'closer': "-->"},
+  \	}
 
 " Pear Tree is enabled for all filetypes by default:
 let g:pear_tree_ft_disabled = []
-
 " Pair expansion is dot-repeatable by default:
 let g:pear_tree_repeatable_expand = 1
-
 " Smart pairs are disabled by default:
 let g:pear_tree_smart_openers = 0
 let g:pear_tree_smart_closers = 0
 let g:pear_tree_smart_backspace = 0
-
 " If enabled, smart pair functions timeout after 60ms:
 let g:pear_tree_timeout = 60
-
-" enable auto complete
-let g:deoplete#enable_at_startup = 1
 " <================================ Plugins options ================================>  
