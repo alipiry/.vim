@@ -1,56 +1,39 @@
 " <================================ plugin manager ================================>  
 set shell=bash
 call plug#begin()
-
 " helper
 Plug 'tpope/vim-sensible'
-
 " nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-
 " fzf
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-
 " syntax highlight
 Plug 'sheerun/vim-polyglot'
-
-" footer 
+" footer
 Plug 'vim-airline/vim-airline'
-
-" git helper 
+" git helper
 Plug 'airblade/vim-gitgutter'
-
 " comment manager
 Plug 'tpope/vim-commentary'
-
 " surround
 Plug 'tpope/vim-surround'
-
-" liniting 
+" liniting
 Plug 'w0rp/ale'
-
 " js highlighter
 Plug 'pangloss/vim-javascript'
-
 " git plugin
 Plug 'tpope/vim-fugitive'
-
-" Auto save 
+" Auto save
 Plug 'vim-scripts/vim-auto-save'
-
-" ts highlighter 
+" ts highlighter
 Plug 'leafgarland/typescript-vim'
-
-" auto-pair 
+" auto-pair
 Plug 'tmsvg/pear-tree'
-
-" theme 
+" theme
 Plug 'morhetz/gruvbox'
-
 call plug#end()
 " <================================ plugin manager ================================>  
-
 
 " <================================ vim config ================================>  
 syntax enable
@@ -60,13 +43,13 @@ filetype plugin on
 filetype indent on
 
 " Save undos after file closes
-set undofile 
+set undofile
 " where to save undo histories
-set undodir=$HOME/.vim/undo 
+set undodir=$HOME/.vim/undo
 " How many undos
-set undolevels=1000         
-" number of lines to save for undo 
-set undoreload=10000       
+set undolevels=1000
+" number of lines to save for undo
+set undoreload=10000
 " Set to auto read when a file is changed from the outside
 set autoread
 " Show line numbers
@@ -76,42 +59,41 @@ set ruler
 " Wrap lines
 set wrap
 " Break lines at word
-set linebreak	
-" Wrap-broken line prefix
-set showbreak=+++	
+set linebreak
+" Wrap-broken line preset showbreak=+++
 " Highlight matching brace
-set showmatch 
+set showmatch
 " Enable spell-checking
-set spell	
-" Use visual bell (no beeping) 
-set visualbell 
+set spell
+" Use visual bell (no beeping)
+set visualbell
 " Highlight all search results
-set hlsearch 
+set hlsearch
 " Enable smart-case search
-set smartcase 
+set smartcase
 " Always case-insensitive
-set ignorecase	
+set ignorecase
 " Searches for strings incrementally
-set incsearch 
+set incsearch
 " Auto-indent new lines
 set autoindent
 " Number of auto-indent spaces
-set shiftwidth=2 
+set shiftwidth=2
 " Enable smart-indent
-set smartindent	
+set smartindent
 " Enable smart-tabs
 set smarttab
 " Number of spaces per Tab
 set softtabstop=2
 set tabstop=2
 " Backspace behavior
-set backspace=indent,eol,start 
+set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 " No sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
-" Don't redraw while executing macros 
+" Don't redraw while executing macros
 set lazyredraw 
 " For regular expressions
 set magic
@@ -121,20 +103,28 @@ set mat=2
 set nobackup
 set nowb
 set noswapfile
-" gitgutter updatetime 
+" gitgutter updatetime
 set updatetime=100
-" autocomplete - ALE 
+" autocomplete - ALE
 let g:ale_completion_enabled = 1
 set completeopt+=noinsert
-" <================================ vim config ================================>  
+" Always show the status line
+set laststatus=2
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+" Use Unix as the standard file type
+set ffs=unix,dos,mac"
+" show extra characters
+set list
+" <================================ vim config ================================>
 
-" <================================ theme config ================================>  
+" <================================ theme config ================================>
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 colorscheme gruvbox
-" <================================ theme config ================================>  
+" <================================ theme config ================================>
 
-" <================================ key bindings  ================================>  
+" <================================ key bindings  ================================>
 " nerdtree shortcut
 map <C-n> <Plug>NERDTreeTabsToggle<CR>
 " global search shortcut
@@ -173,6 +163,9 @@ nmap <BS> X
 " create tab, switch to next tab
 noremap <Leader>t :tabnew <CR>
 noremap <Leader>n :tabnext <CR>
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null"
 " <================================ key bindings  ================================>  
 
 " <================================ Plugins options ================================>  
@@ -185,37 +178,37 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
-  \	'javascript': ['eslint', 'flow-language-server'],
-  \	'javascript.jsx': ['eslint', 'flow-language-server'],
-  \	}
+  \ 'javascript': ['eslint', 'flow-language-server'],
+  \ 'javascript.jsx': ['eslint', 'flow-language-server'],
+  \ }
 
 let g:ale_fixers = {
-  \	'javascript': ['prettier', 'eslint'],
-  \	'javascript.jsx': ['prettier', 'eslint'],
-  \	'typescript': ['tslint'],
-  \	'css': ['prettier'],
-  \	}
+  \ 'javascript': ['prettier', 'eslint'],
+  \ 'javascript.jsx': ['prettier', 'eslint'],
+  \ 'typescript': ['tslint'],
+  \ 'css': ['prettier'],
+  \ }
 
 " enable AutoSave on Vim startup
-let g:auto_save = 1  
+let g:auto_save = 1
 " do not change the 'updatetime' option
-let g:auto_save_no_updatetime = 1  
+let g:auto_save_no_updatetime = 1
 " do not save while in insert mode
-let g:auto_save_in_insert_mode = 0  
+let g:auto_save_in_insert_mode = 0
 
 " open NERDTree on vim startup
 " let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Default rules for matching
 let g:pear_tree_pairs = {
-  \	'(': {'closer': ')'},
-  \	'[': {'closer': ']'},
-  \	'{': {'closer': '}'},
-  \	"'": {'closer': "'"},
-  \	'"': {'closer': '"'},
+  \ '(': {'closer': ')'},
+  \ '[': {'closer': ']'},
+  \ '{': {'closer': '}'},
+  \ "'": {'closer': "'"},
+  \ '"': {'closer': '"'},
   \ "/*": {'closer': "*/"},
   \ "<!--": {'closer': "-->"},
-  \	}
+  \}
 
 " Pear Tree is enabled for all filetypes by default:
 let g:pear_tree_ft_disabled = []
@@ -227,4 +220,4 @@ let g:pear_tree_smart_closers = 0
 let g:pear_tree_smart_backspace = 0
 " If enabled, smart pair functions timeout after 60ms:
 let g:pear_tree_timeout = 60
-" <================================ Plugins options ================================>  
+" <================================ Plugins options ================================>
