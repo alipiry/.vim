@@ -1,3 +1,4 @@
+" <================================ plugin manager ================================>  
 set shell=bash
 call plug#begin()
 
@@ -45,40 +46,19 @@ Plug 'leafgarland/typescript-vim'
 Plug 'tmsvg/pear-tree'
 
 " theme 
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'morhetz/gruvbox'
 
 " auto complete
-Plug 'ajh17/VimCompletesMe'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 call plug#end()
+" <================================ plugin manager ================================>  
 
+
+" <================================ vim config ================================>  
 syntax enable
-
-if (has("termguicolors"))
-	set termguicolors
-endif
-
-set background=dark
-colorscheme palenight
-
-" nerdtree shortcut
-map <C-n> <plug>NERDTreeTabsToggle<CR>
-
-" ctrl-s shortcut
-noremap <silent> <C-S> :update<CR>
-
-" fzf 
-noremap <silent> <C-f> :FZF<CR>
-
-" force quit
-noremap <silent> <C-w><C-q> :q!<CR>
-
-" comment shortcut - C-_
-nmap <C-_> <Plug>CommentaryLine
-
-" ALE key binding
-nmap <silent> <leader>f :ALEFix<cr>
-nmap <silent> <leader>gd :ALEGoToDefinitionInVSplit<cr>
 
 set number
 set ruler
@@ -131,10 +111,61 @@ set mat=2
 set nobackup
 set nowb
 set noswapfile
+" <================================ vim config ================================>  
 
-" Plugins
+" <================================ theme config ================================>  
+let g:gruvbox_contrast_dark = 'hard'
+set background=dark
+colorscheme gruvbox
+" <================================ theme config ================================>  
 
+" <================================ key bindings  ================================>  
+" nerdtree shortcut
+map <C-n> <plug>NERDTreeTabsToggle<CR>
+
+" ctrl-s shortcut
+noremap <silent> <C-S> :update<CR>
+
+" fzf 
+noremap <silent> <C-f> :FZF<CR>
+
+" force quit
+noremap <silent> <C-w><C-q> :q!<CR>
+
+" comment shortcut - C-_
+nmap <C-_> <Plug>CommentaryLine
+
+" ALE key binding
+nmap <silent> <leader>f :ALEFix<cr>
+nmap <silent> <leader>gd :ALEGoToDefinitionInVSplit<cr>
+
+" Git status
+noremap <Leader>gs :GFiles?<CR>
+" Git log
+noremap <Leader>gl :Commits<CR>
+" Git checkout file 
+noremap <Leader>gch :Gread <CR>
+" Git add file
+noremap <Leader>ga :Gwrite <CR>
+" Git commit 
+noremap <Leader>gco :Gcommit <CR>
+" Git diff
+noremap <Leader>df :Gdiff <CR>
+" Git push
+noremap <Leader>gps :Gpush<CR>
+
+" Buffer history
+noremap <Leader>b :History<CR>
+
+" map enter to insert mode
+nmap <CR> i
+" map backspace 
+nmap <BS> X
+" <================================ key bindings  ================================>  
+
+" <================================ Plugins options ================================>  
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'gruvbox'
 
 let g:javascript_plugin_flow = 1
 
@@ -156,24 +187,6 @@ let g:ale_fixers = {
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
-
-" Git status
-noremap <Leader>gs :GFiles?<CR>
-" Git log
-noremap <Leader>gl :Commits<CR>
-" Git checkout file 
-noremap <Leader>gch :Gread <CR>
-" Git add file
-noremap <Leader>ga :Gwrite <CR>
-" Git commit 
-noremap <Leader>gco :Gcommit <CR>
-" Git diff
-noremap <Leader>df :Gdiff <CR>
-" Git push
-noremap <Leader>gps :Gpush<CR>
-
-" Buffer history
-noremap <Leader>b :History<CR>
 
 " open NERDTree on vim startup
 " let g:nerdtree_tabs_open_on_console_startup = 1
@@ -203,13 +216,6 @@ let g:pear_tree_smart_backspace = 0
 " If enabled, smart pair functions timeout after 60ms:
 let g:pear_tree_timeout = 60
 
-" map enter to insert mode
-nmap <CR> i
-" map backspace 
-nmap <BS> X
-
-" auto complete config
-autocmd FileType vim let b:vcm_tab_complete = 'vim'
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-set completeopt+=longest
-
+" enable auto complete
+let g:deoplete#enable_at_startup = 1
+" <================================ Plugins options ================================>  
