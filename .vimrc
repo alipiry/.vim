@@ -46,6 +46,9 @@ Plug 'leafgarland/typescript-vim'
 " tsx highlighter
 Plug 'ianks/vim-tsx'
 
+" auto-pair 
+Plug 'tmsvg/pear-tree'
+
 call plug#end()
 
 if (empty($TMUX))
@@ -170,4 +173,30 @@ noremap <Leader>gl :Commits<CR>
 
 " open NERDTree on vim startup
 let g:nerdtree_tabs_open_on_console_startup = 1
+
+" Default rules for matching
+let g:pear_tree_pairs = {
+  \ '(': {'closer': ')'},
+  \ '[': {'closer': ']'},
+  \ '{': {'closer': '}'},
+  \ "'": {'closer': "'"},
+  \ '"': {'closer': '"'}
+  \ }
+
+" Pear Tree is enabled for all filetypes by default:
+let g:pear_tree_ft_disabled = []
+
+" Pair expansion is dot-repeatable by default:
+let g:pear_tree_repeatable_expand = 1
+
+" Smart pairs are disabled by default:
+let g:pear_tree_smart_openers = 0
+let g:pear_tree_smart_closers = 0
+let g:pear_tree_smart_backspace = 0
+
+" If enabled, smart pair functions timeout after 60ms:
+let g:pear_tree_timeout = 60
+
+" map enter to insert mode
+nmap <CR> o<Esc>
 
