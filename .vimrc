@@ -4,7 +4,7 @@ call plug#begin()
 " helper
 Plug 'tpope/vim-sensible'
 
-" nertree
+" nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
@@ -17,7 +17,7 @@ Plug 'sheerun/vim-polyglot'
 " footer 
 Plug 'vim-airline/vim-airline'
 
-" git marks
+" git helper 
 Plug 'airblade/vim-gitgutter'
 
 " comment manager
@@ -41,28 +41,25 @@ Plug 'vim-scripts/vim-auto-save'
 " ts highlighter 
 Plug 'leafgarland/typescript-vim'
 
-" tsx highlighter
-Plug 'ianks/vim-tsx'
-
 " auto-pair 
 Plug 'tmsvg/pear-tree'
 
-" theme - tender
-Plug 'alipiry/tender.vim'
+" theme 
+Plug 'drewtempelmeyer/palenight.vim'
 
 " auto complete
 Plug 'ajh17/VimCompletesMe'
 
 call plug#end()
 
-" If you have vim >=8.0 or Neovim >= 0.1.5
+syntax enable
+
 if (has("termguicolors"))
-  set termguicolors
+	set termguicolors
 endif
 
-" Theme
-syntax enable
-colorscheme tender
+set background=dark
+colorscheme palenight
 
 " nerdtree shortcut
 map <C-n> <plug>NERDTreeTabsToggle<CR>
@@ -138,7 +135,6 @@ set noswapfile
 " Plugins
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'tender'
 
 let g:javascript_plugin_flow = 1
 
@@ -209,6 +205,7 @@ let g:pear_tree_timeout = 60
 
 " map enter to insert mode
 nmap <CR> i
+" map backspace 
 nmap <BS> X
 
 " auto complete config
