@@ -172,7 +172,7 @@ noremap <Leader>b :History<CR>
 noremap <Leader>gl :Commits<CR>
 
 " open NERDTree on vim startup
-let g:nerdtree_tabs_open_on_console_startup = 1
+" let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Default rules for matching
 let g:pear_tree_pairs = {
