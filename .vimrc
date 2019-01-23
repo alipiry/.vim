@@ -162,7 +162,7 @@ colorscheme gruvbox
 map <C-n> <Plug>NERDTreeTabsToggle<CR>
 " global search shortcut
 noremap <C-S> :Ag<CR>
-" fzf 
+" FZF in Current dir
 noremap <C-f> :FZF<CR>
 " force quit
 noremap <C-w><C-q> :q!<CR>
@@ -253,4 +253,6 @@ let g:pear_tree_smart_closers = 0
 let g:pear_tree_smart_backspace = 0
 " If enabled, smart pair functions timeout after 60ms:
 let g:pear_tree_timeout = 60
+" FZF finds hidden files
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 " <================================ Plugins options ================================>
