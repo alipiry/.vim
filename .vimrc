@@ -63,9 +63,9 @@ Plug 'tmsvg/pear-tree'
 " theme
 Plug 'morhetz/gruvbox'
 call plug#end()
-" <================================ plugin manager ================================>  
+" <================================ plugin manager ================================>
 
-" <================================ vim config ================================>  
+" <================================ vim config ================================>
 syntax enable
 
 " Enable filetype plugin
@@ -90,7 +90,8 @@ set ruler
 set wrap
 " Break lines at word
 set linebreak
-" Wrap-broken line preset showbreak=+++
+" Wrap-broken line prefix
+set showbreak=+++
 " Highlight matching brace
 set showmatch
 " Enable spell-checking
@@ -146,6 +147,8 @@ set encoding=utf8
 set ffs=unix,dos,mac"
 " show extra characters
 set list
+" can select with mouse
+set mouse=a
 " <================================ vim config ================================>
 
 " <================================ theme config ================================>
@@ -166,13 +169,13 @@ noremap <C-w><C-q> :q!<CR>
 " comment shortcut - \/
 nmap <Leader>/ <Plug>CommentaryLine
 " ALE key binding
-nmap <Leader>f :ALEFix<cr>
-nmap <Leader>gd :ALEGoToDefinitionInVSplit<cr>
+nmap <Leader>f :ALEFix<CR>
+nmap <Leader>gd :ALEGoToDefinitionInVSplit<CR>
 " Git status
 noremap <Leader>gs :GFiles?<CR>
 " Git log
 noremap <Leader>gl :Commits<CR>
-" Git checkout file 
+" Git checkout file
 noremap <Leader>gch :Gread <CR>
 " Git add file
 noremap <Leader>ga :Gwrite <CR>
@@ -188,7 +191,7 @@ noremap <Leader>gpl :Gpull<CR>
 noremap <Leader>b :History<CR>
 " map enter to insert mode
 nmap <CR> i
-" map backspace 
+" map backspace
 nmap <BS> X
 " create tab, switch to next tab
 noremap <Leader>t :tabnew <CR>
@@ -196,9 +199,9 @@ noremap <Leader>n :tabnext <CR>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null"
-" <================================ key bindings  ================================>  
+" <================================ key bindings  ================================>
 
-" <================================ Plugins options ================================>  
+" <================================ Plugins options ================================>
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
 
