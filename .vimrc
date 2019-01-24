@@ -117,9 +117,8 @@ set smarttab
 " Number of spaces per Tab
 set softtabstop=2
 set tabstop=2
-" Backspace behavior
-set backspace=indent,eol,start
-set whichwrap+=<,>,h,l
+" set backspace to prev line
+nmap <BS> -
 " No sound on errors
 set noerrorbells
 set novisualbell
