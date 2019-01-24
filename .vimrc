@@ -147,8 +147,10 @@ set encoding=utf8
 set ffs=unix,dos,mac"
 " show extra characters
 set list
-" can select with mouse
-set mouse=a
+" enable better usage of mouse
+set mouse=
+" enable cursor highlight
+set cursorline
 " <================================ vim config ================================>
 
 " <================================ theme config ================================>
@@ -170,7 +172,7 @@ noremap <C-w><C-q> :q!<CR>
 nmap <Leader>/ <Plug>CommentaryLine
 " ALE key binding
 nmap <Leader>f :ALEFix<CR>
-nmap <Leader>gd :ALEGoToDefinitionInVSplit<CR>
+nmap <Leader>gd :ALEGoToDefinition<CR>
 " Git status
 noremap <Leader>gs :GFiles?<CR>
 " Git log
