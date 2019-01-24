@@ -117,8 +117,6 @@ set smarttab
 " Number of spaces per Tab
 set softtabstop=2
 set tabstop=2
-" set backspace to prev line
-nmap <BS> -
 " No sound on errors
 set noerrorbells
 set novisualbell
@@ -201,6 +199,8 @@ nmap j )
 nmap k (
 nmap h ^
 nmap l $
+" map backspace to prev line
+nmap <BS> -
 " <================================ key bindings  ================================>
 
 " <================================ Plugins options ================================>
