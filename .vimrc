@@ -191,16 +191,17 @@ noremap <Leader>gps :Gpush<CR>
 noremap <Leader>gpl :Gpull<CR>
 " Buffer history
 noremap <Leader>b :History<CR>
-" map enter to insert mode
-nmap <CR> i
-" map backspace
-nmap <BS> X
 " create tab, switch to next tab
 noremap <Leader>t :tabnew <CR>
 noremap <Leader>n :tabnext <CR>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null"
+" remap h j k l 
+nmap j )
+nmap k (
+nmap h ^
+nmap l $
 " <================================ key bindings  ================================>
 
 " <================================ Plugins options ================================>
