@@ -110,6 +110,8 @@ set incsearch
 set autoindent
 " Number of auto-indent spaces
 set shiftwidth=2
+" Show existing tab with 2 spaces width
+set expandtab
 " Enable smart-indent
 set smartindent
 " Enable smart-tabs
