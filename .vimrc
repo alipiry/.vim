@@ -147,7 +147,7 @@ set ffs=unix,dos,mac"
 " show extra characters
 set list
 " enable better usage of mouse
-set mouse=
+set mouse=a
 " enable cursor highlight
 set cursorline
 " <================================ vim config ================================>
