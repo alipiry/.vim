@@ -62,6 +62,14 @@ Plug 'leafgarland/typescript-vim'
 Plug 'tmsvg/pear-tree'
 " theme
 Plug 'morhetz/gruvbox'
+" ES2015 code snippets
+Plug 'epilande/vim-es2015-snippets'
+" React code snippets
+Plug 'epilande/vim-react-snippets'
+" Ultisnips
+Plug 'SirVer/ultisnips'
+" vim snippets
+Plug 'honza/vim-snippets'
 call plug#end()
 " <================================ plugin manager ================================>
 
@@ -259,4 +267,6 @@ let g:pear_tree_smart_backspace = 0
 let g:pear_tree_timeout = 60
 " FZF finds hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+" Trigger configuration
+let g:UltiSnipsExpandTrigger="<tab>"
 " <================================ Plugins options ================================>
