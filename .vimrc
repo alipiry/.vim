@@ -70,6 +70,8 @@ Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 " vim snippets
 Plug 'honza/vim-snippets'
+" lines indention plugin
+Plug 'Yggdroot/indentLine'
 call plug#end()
 " <================================ plugin manager ================================>
 
