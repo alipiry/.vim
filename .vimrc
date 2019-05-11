@@ -55,7 +55,7 @@ Plug 'pangloss/vim-javascript'
 " git plugin
 Plug 'tpope/vim-fugitive'
 " Auto save
-Plug 'vim-scripts/vim-auto-save'
+" Plug 'vim-scripts/vim-auto-save'
 " ts highlighter
 Plug 'leafgarland/typescript-vim'
 " auto-pair
@@ -237,11 +237,11 @@ let g:ale_fixers = {
   \ }
 
 " enable AutoSave on Vim startup
-let g:auto_save = 1
+" let g:auto_save = 1
 " do not change the 'updatetime' option
-let g:auto_save_no_updatetime = 1
+" let g:auto_save_no_updatetime = 1
 " do not save while in insert mode
-let g:auto_save_in_insert_mode = 0
+" let g:auto_save_in_insert_mode = 0
 
 " open NERDTree on vim startup
 " let g:nerdtree_tabs_open_on_console_startup = 1
