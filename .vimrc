@@ -59,7 +59,7 @@ Plug 'tpope/vim-fugitive'
 " ts highlighter
 Plug 'leafgarland/typescript-vim'
 " auto-pair
-Plug 'tmsvg/pear-tree'
+" Plug 'tmsvg/pear-tree'
 " theme
 Plug 'morhetz/gruvbox'
 " ES2015 code snippets
@@ -160,6 +160,8 @@ set list
 set mouse=a
 " enable cursor highlight
 set cursorline
+" fix buffer switching
+set hidden
 " <================================ vim config ================================>
 
 " <================================ theme config ================================>
