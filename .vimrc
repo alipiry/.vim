@@ -205,14 +205,6 @@ noremap <Leader>b :History<CR>
 " create tab, switch to next tab
 noremap <Leader>t :tabnew <CR>
 noremap <Leader>n :tabnext <CR>
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null"
-" remap h j k l 
-nmap j )
-nmap k (
-nmap h ^
-nmap l $
 " map backspace to prev line
 nmap <BS> -
 " <================================ key bindings  ================================>
