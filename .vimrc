@@ -171,6 +171,9 @@ colorscheme gruvbox
 " <================================ theme config ================================>
 
 " <================================ key bindings  ================================>
+" remap leader
+let mapleader = "`"
+let g:mapleader = "`"
 " nerdtree shortcut
 map <C-n> <Plug>NERDTreeTabsToggle<CR>
 " global search shortcut
