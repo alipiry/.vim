@@ -82,6 +82,9 @@ syntax enable
 filetype plugin on
 filetype indent on
 
+" remap leader
+let mapleader = "`"
+let g:mapleader = "`"
 " Save undos after file closes
 set undofile
 " where to save undo histories
@@ -171,9 +174,11 @@ colorscheme gruvbox
 " <================================ theme config ================================>
 
 " <================================ key bindings  ================================>
-" remap leader
-let mapleader = "`"
-let g:mapleader = "`"
+" disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 " nerdtree shortcut
 map <C-n> <Plug>NERDTreeTabsToggle<CR>
 " global search shortcut
