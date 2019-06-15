@@ -82,9 +82,6 @@ syntax enable
 filetype plugin on
 filetype indent on
 
-" remap leader
-let mapleader = "`"
-let g:mapleader = "`"
 " Save undos after file closes
 set undofile
 " where to save undo histories
