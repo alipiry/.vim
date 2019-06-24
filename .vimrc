@@ -171,11 +171,6 @@ colorscheme gruvbox
 " <================================ theme config ================================>
 
 " <================================ key bindings  ================================>
-" disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
 " nerdtree shortcut
 map <C-n> <Plug>NERDTreeTabsToggle<CR>
 " global search shortcut
